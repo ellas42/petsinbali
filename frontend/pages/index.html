@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pets in Bali - Find Your Companion</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <div class="logo">Pets in Bali</div>
+        <ul class="nav-links">
+          <li><a href="#reason">About</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li id="create-listing-link" style="display: none">
+            <a href="create-listing.html">Post Animal</a>
+          </li>
+          <li class="login-link">
+            <a href="login.html"><i class="fa-solid fa-circle-user"></i></a>
+          </li>
+          <li id="logout-link" style="display: none">
+            <a href="#" onclick="logout()">Logout</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <h2>Give a Loving Home to Animals in Need</h2>
+          <p>Connect with rescued animals across Bali and make a difference</p>
+        </div>
+      </section>
+
+      <section class="filters">
+        <div class="container">
+          <select id="filter-type" onchange="applyFilters()">
+            <option value="">All Animals</option>
+            <option value="Dog">Dogs</option>
+            <option value="Cat">Cats</option>
+            <option value="Bird">Birds</option>
+            <option value="Rabbit">Rabbits</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <input
+            type="text"
+            id="filter-location"
+            placeholder="Location (e.g., Ubud, Canggu)"
+            onchange="applyFilters()"
+          />
+
+          <select id="filter-status" onchange="applyFilters()">
+            <option value="Available">Available</option>
+            <option value="">All Status</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="listings">
+        <div class="container">
+          <div id="listings-container" class="listings-grid">
+            <div class="loading">Loading animals...</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <hr class="divider">
+
+    <section class="reason" id="reason">
+      <div class="reason-title">
+        <h2>What Was The Reason Pets in Bali Created?</h2>
+        <p>
+          This website was created as a non-commercial initiative to help
+          animals in Bali find loving homes. Many animals in Bali are
+          abandoned or stray, facing challenges such as lack of food, shelter,
+          and medical care. By connecting potential adopters with these animals,
+          we aim to improve their lives and promote animal welfare in the
+          community.
+        </p>
+      </div>
+      <button class="about-btn">
+        <a href="about.html" class="cafe-link">Learn More About Us</a>
+      </button>
+    </section>
+
+    <hr class="divider">
+
+    <section class="cafe-recommendations">
+      <div class="descriptions">
+        <h2>Must Visit Pet Cafes</h2>
+        <p>
+          Explore Bali's pet cafes while you're here and give love to the pets
+          there!
+        </p>
+      </div>
+      <div class="carousel">
+        <div class="carousel-track" id="cafe-carousel-track"></div>
+        <button class="carousel-button left" id="cafe-carousel-left">
+          &#10094;
+        </button>
+        <button class="carousel-button right" id="cafe-carousel-right">
+          &#10095;
+        </button>
+      </div>
+    </section>
+
+    <section class="help">
+      <div class="help-content">
+        <h2>How You Can Contribute</h2>
+        <ul>
+          <li>Adopt a loving pet from our listings</li>
+          <li>Foster animals in need of temporary homes</li>
+          <li>Donate to support rescue and care efforts</li>
+          <li>Volunteer with local animal shelters</li>
+        </ul>
+        <div class="divider">
+  <span>OR</span>
+</div>
+
+        <div class="donate-button-container">
+          <a
+            href="donate.html"
+            class="donate-button"
+            >Donate Now to Save Lives</a
+          >
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>
+          &copy; 2025 Pets in Bali - A Non-Commercial Initiative for
+          Animal Welfare
+        </p>
+      </div>
+    </footer>
+    <script src="../js/index.js"></script>
+  </body>
+</html>

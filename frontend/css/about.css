@@ -1,0 +1,192 @@
+/* ...existing code... */
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* 🌼 Core Brand Colors */
+  --color-primary: #ff914d; /* soft orange */
+  --color-secondary: #ffd6a5; /* peachy beige */
+  --color-accent: #6bcb77; /* mint green */
+
+  /* 🌤 Neutrals */
+  --color-bg: #fff9f4; /* warm off-white background */
+  --color-surface: #ffffff; /* white card or container */
+  --color-text: #333333; /* dark charcoal */
+  --color-subtext: #666666; /* muted gray for secondary text */
+
+  /* 🐾 Optional hover/active variants */
+  --color-primary-hover: #ff7a29;
+  --color-accent-hover: #58b966;
+
+  /* spacing / layout */
+  --container-max: 1100px;
+  --radius: 12px;
+  --gap: 20px;
+}
+
+/* Page */
+body {
+  font-family: "Outfit", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.55;
+}
+
+/* Generic container used across pages */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 28px 20px;
+}
+
+/* Header / Nav */
+header {
+  background: linear-gradient(90deg, rgba(255,145,77,0.06), rgba(107,203,119,0.02));
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+
+nav.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--color-text);
+  letter-spacing: 0.2px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--color-text);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color .18s, color .14s, transform .06s;
+}
+
+.nav-links a:hover {
+  background: var(--color-surface);
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+/* Big title / hero for about page */
+.big-title {
+  text-align: center;
+  padding: 48px 20px;
+  background: linear-gradient(180deg, rgba(255,145,77,0.06), transparent 40%);
+  border-radius: var(--radius);
+  margin: 28px auto;
+  max-width: calc(var(--container-max) - 40px);
+}
+
+.big-title h1 {
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  color: var(--color-text);
+  margin-bottom: 12px;
+  font-weight: 800;
+}
+
+.big-title p {
+  color: var(--color-subtext);
+  font-size: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Page content */
+.content.container {
+  background: var(--color-surface);
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(16,24,40,0.04);
+  border: 1px solid rgba(2,6,23,0.03);
+  margin-bottom: 36px;
+}
+
+.content h2 {
+  color: var(--color-text);
+  margin-bottom: 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.content p {
+  color: var(--color-subtext);
+  margin-bottom: 14px;
+  font-size: 1rem;
+}
+
+.content ul {
+  margin: 8px 0 18px 20px;
+  color: var(--color-subtext);
+}
+
+.content li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+/* Disclaimer styling */
+.content h3 {
+  color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* Contact link */
+.content a[href^="mailto:"] {
+  color: var(--color-accent);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* Footer */
+footer {
+  margin-top: 24px;
+  padding: 20px 0;
+  background: transparent;
+  color: var(--color-subtext);
+}
+
+footer .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+/* Utility: responsive adjustments */
+@media (max-width: 880px) {
+  nav.container { flex-direction: column; align-items: flex-start; gap: 8px; padding-top: 12px; padding-bottom: 12px; }
+  .big-title { padding: 28px 14px; margin: 20px 10px; }
+  .content.container { padding: 18px; margin: 12px 10px; }
+  .nav-links { gap: 10px; flex-wrap: wrap; }
+}
+
+/* small focus styles for accessibility */
+a:focus, button:focus {
+  outline: 3px solid rgba(107,203,119,0.18);
+  outline-offset: 3px;
+  border-radius: 6px;
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Animal for Adoption - Pets in Bali</title>
+  <link rel="stylesheet" href="../css/create-listing.css">
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a href="index.html" class="logo">Pets in Bali</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="create-listing.html">Post Animal</a></li>
+        <li><a href="#" onclick="logout()">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <div class="form-container">
+        <h1>Post Animal for Adoption</h1>
+        <p>Help an animal find a loving home by posting their details</p>
+
+        <div id="error-message" class="error-message"></div>
+        <div id="success-message" class="success-message"></div>
+
+        <form id="listing-form">
+          <!-- Basic Info -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Animal Name *</label>
+              <input type="text" id="name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="type">Animal Type *</label>
+              <select id="type" required>
+                <option value="" disabled selected hidden>Select type</option>
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+                <option value="Bird">Bird</option>
+                <option value="Rabbit">Rabbit</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="breed">Breed (optional)</label>
+              <input type="text" id="breed" placeholder="e.g., Golden Retriever, Persian">
+            </div>
+
+            <div class="form-group">
+              <label for="age">Age (optional)</label>
+              <input type="text" id="age" placeholder="e.g., 2 years, 6 months">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <select id="gender">
+                <option value="Unknown">Unknown</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="location">Location *</label>
+              <input type="text" id="location" placeholder="e.g., Ubud, Canggu" required>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="form-group">
+            <label for="description">Description *</label>
+            <textarea id="description" required placeholder="Tell potential adopters about this animal's personality, behavior, and any special needs..."></textarea>
+          </div>
+
+          <!-- Health Info -->
+          <div class="form-group">
+            <label for="healthStatus">Health Status (optional)</label>
+            <input type="text" id="healthStatus" placeholder="e.g., Healthy, needs medication for...">
+          </div>
+
+          <div class="form-group">
+            <div class="checkbox-group">
+              <input type="checkbox" id="vaccinated">
+              <label for="vaccinated" style="margin-bottom: 0;">Vaccinated</label>
+            </div>
+          </div>
+
+          <!-- Photos -->
+          <div class="form-group">
+            <label>Photos (optional, up to 5)</label>
+            <div class="photo-upload" onclick="document.getElementById('photos').click()">
+              <p>📷 Click to upload photos</p>
+              <p style="font-size: 0.9rem; color: #7f8c8d;">JPG, PNG up to 5MB each</p>
+              <input type="file" id="photos" accept="image/*" multiple>
+            </div>
+            <div id="photo-preview" class="photo-preview"></div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="button-group">
+            <button type="submit" class="btn" id="submit-btn">Post Animal</button>
+            <button type="button" class="btn btn-secondary" onclick="window.location.href='../index.html'">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/create-listing.js" defer></script>
+</body>
+</html>
