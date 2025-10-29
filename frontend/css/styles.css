@@ -14,18 +14,17 @@ body {
 }
 
 :root {
-  /* 🌼 Core Brand Colors */
-  --color-primary: #ff914d; /* soft orange */
-  --color-secondary: #ffd6a5; /* peachy beige */
-  --color-accent: #6bcb77; /* mint green */
+  --color-primary: #ff914d;
+  --color-secondary: #ffd6a5; 
+  --color-accent: #6bcb77;
+  --color-text: #2c3e50;
+  --color-text-p: #555;
 
-  /* 🌤 Neutrals */
-  --color-bg: #fff9f4; /* warm off-white background */
-  --color-surface: #ffffff; /* white card or container */
-  --color-text: #333333; /* dark charcoal */
-  --color-subtext: #666666; /* muted gray for secondary text */
+  --color-bg: #fff9f4; 
+  --color-surface: #ffffff; 
+  --color-text: #333333; 
+  --color-subtext: #666666; 
 
-  /* 🐾 Optional hover/active variants */
   --color-primary-hover: #ff7a29;
   --color-accent-hover: #58b966;
 }
@@ -234,7 +233,6 @@ nav {
   background-color: var(--color-primary-hover);
 }
 
-/* Loading */
 .loading {
   text-align: center;
   padding: 3rem;
@@ -254,14 +252,14 @@ nav {
 
 .reason-title h2 {
   font-size: 2rem;
-  color: #2c3e50;
+  color: var(--color-text);
   margin-bottom: 1.5rem;
 }
 
 .reason-title p {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #555;
+  color: var(--color-text-p);
   text-align: center;
 }
 
@@ -294,6 +292,63 @@ nav {
   background-color: var(--color-primary-hover);
 }
 /* ...existing code... */
+
+.impact-section {
+  background-color: var(--color-bg);
+  text-align: center;
+  padding: 80px 20px;
+  border-top: 1px solid #f2e3d5;
+}
+
+.impact-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.impact-section h2 {
+  font-size: 2rem;
+  color: var(--color-text);
+  margin-bottom: 15px;
+}
+
+.impact-intro {
+  color: var(--color-text-p);
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.impact-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.stat {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.stat:hover {
+  transform: translateY(-4px);
+}
+
+.stat h3 {
+  color: var(--color-primary);
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.stat p {
+  color: var(--color-text-p);
+  font-size: 1rem;
+}
+
 
 
 .cafe-recommendations {
