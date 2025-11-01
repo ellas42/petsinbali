@@ -136,7 +136,7 @@ window.addEventListener("DOMContentLoaded", () => {
   loadListings();
 });
 
-//for carousels
+//cafe carousels
 
 const cafes = [
   {

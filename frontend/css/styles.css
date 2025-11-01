@@ -65,7 +65,6 @@ body {
   padding: 0 20px;
 }
 
-/* Header */
 header {
   background-color: var(--color-bg);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -105,7 +104,6 @@ nav {
   color: var(--color-primary-hover);
 }
 
-/* Account Dropdown */
 .account-dropdown {
   position: relative;
 }
@@ -116,13 +114,12 @@ nav {
   gap: 0.5rem;
   background: transparent;
   border: none;
-  color: #333;
+  color: var(--color-primary);
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
   padding: 0.5rem 1rem;
   border-radius: 6px;
-  transition: background-color 0.3s;
 }
 
 .account-btn:hover {
@@ -138,7 +135,6 @@ nav {
   transform: rotate(180deg);
 }
 
-/* Dropdown Menu */
 .dropdown-menu {
   position: absolute;
   top: calc(100% + 0.5rem);
@@ -160,13 +156,11 @@ nav {
   transform: translateY(0);
 }
 
-/* Dropdown Header */
 .dropdown-header {
   display: flex;
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 8px 8px 0 0;
   color: white;
 }
@@ -187,7 +181,6 @@ nav {
   margin: 0;
 }
 
-/* Dropdown Items */
 .dropdown-item {
   display: flex;
   align-items: center;
@@ -205,7 +198,7 @@ nav {
 .dropdown-item i {
   width: 20px;
   font-size: 1rem;
-  color: #667eea;
+  color: var(--color-primary);
 }
 
 .logout-item {
@@ -220,14 +213,12 @@ nav {
   background-color: #fee;
 }
 
-/* Dropdown Divider */
 .dropdown-divider {
   height: 1px;
   background-color: #e0e0e0;
   margin: 0.5rem 0;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .dropdown-menu {
     right: -20px;
