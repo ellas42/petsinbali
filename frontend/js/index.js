@@ -1,11 +1,9 @@
 const API_URL = "http://localhost:5000/api";
 
-// Token management
 const getToken = () => localStorage.getItem("token");
 const setToken = (token) => localStorage.setItem("token", token);
 const removeToken = () => localStorage.removeItem("token");
 
-// API request wrapper
 async function apiRequest(endpoint, options = {}) {
   const token = getToken();
 
@@ -36,7 +34,6 @@ async function apiRequest(endpoint, options = {}) {
   }
 }
 
-// Auth functions
 function isLoggedIn() {
   return !!getToken();
 }
@@ -52,7 +49,6 @@ function logout() {
   window.location.href = "login.html";
 }
 
-// Load listings
 async function loadListings(filters = {}) {
   try {
     const params = new URLSearchParams(filters);
@@ -64,7 +60,6 @@ async function loadListings(filters = {}) {
   }
 }
 
-// Display listings
 function displayListings(listings) {
   const container = document.getElementById("listings-container");
   container.innerHTML = "";
@@ -107,7 +102,6 @@ function displayListings(listings) {
   });
 }
 
-// Apply filters
 function applyFilters() {
   const filters = {
     type: document.getElementById("filter-type").value,
@@ -115,7 +109,6 @@ function applyFilters() {
     status: document.getElementById("filter-status").value,
   };
 
-  // Remove empty filters
   Object.keys(filters).forEach((key) => {
     if (!filters[key]) delete filters[key];
   });
@@ -123,16 +116,14 @@ function applyFilters() {
   loadListings(filters);
 }
 
-// View listing (placeholder)
 function viewListing(id) {
   alert("Listing detail page coming soon! Listing ID: " + id);
 }
 
-// Initialize page
 window.addEventListener("DOMContentLoaded", () => {
-  // Check if user is logged in
   if (isLoggedIn()) {
     const user = getCurrentUser();
+    //I HAVE NO IDEA WHY I COMMENTED TS ???????
     //document.getElementById("login-link").style.display = "none";
     //document.getElementById("register-link").style.display = "none";
     //document.getElementById("logout-link").style.display = "block";
@@ -142,7 +133,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Load listings
   loadListings();
 });
 
@@ -216,7 +206,6 @@ const cafes = [
   },
 ];
 
-// Create cafe cards
 const track = document.getElementById("cafe-carousel-track");
 
 cafes.forEach((cafe, cafeIndex) => {
@@ -261,11 +250,9 @@ cafes.forEach((cafe, cafeIndex) => {
 
   track.appendChild(card);
 
-  // Setup image slider for this cafe
   setupImageSlider(cafeIndex, cafe.images.length);
 });
 
-// Image slider functionality
 function setupImageSlider(cafeIndex, imageCount) {
   const slider = document.getElementById(`slider-${cafeIndex}`);
   const dots = document.querySelectorAll(`#dots-${cafeIndex} .dot`);
@@ -286,7 +273,6 @@ function setupImageSlider(cafeIndex, imageCount) {
     showImage(nextIndex);
   }
 
-  // Auto-slide every 3 seconds
   function startAutoSlide() {
     autoSlideInterval = setInterval(nextImage, 3000);
   }
@@ -295,7 +281,6 @@ function setupImageSlider(cafeIndex, imageCount) {
     clearInterval(autoSlideInterval);
   }
 
-  // Dot click handlers
   dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
       showImage(index);
@@ -304,16 +289,13 @@ function setupImageSlider(cafeIndex, imageCount) {
     });
   });
 
-  // Start auto-sliding
   startAutoSlide();
 
-  // Stop when hovering over the card
   const card = slider.closest(".cafe-card");
   card.addEventListener("mouseenter", stopAutoSlide);
   card.addEventListener("mouseleave", startAutoSlide);
 }
 
-// Carousel navigation
 const leftBtn = document.getElementById("cafe-carousel-left");
 const rightBtn = document.getElementById("cafe-carousel-right");
 
@@ -331,7 +313,6 @@ rightBtn.addEventListener("click", () => {
   });
 });
 
-// Hide/show buttons based on scroll position
 function updateButtons() {
   const scrollLeft = track.scrollLeft;
   const maxScroll = track.scrollWidth - track.clientWidth;
@@ -345,3 +326,66 @@ function updateButtons() {
 
 track.addEventListener("scroll", updateButtons);
 updateButtons();
+
+
+///account dropdown
+document.addEventListener('DOMContentLoaded', () => {
+  const accountBtn = document.getElementById('account-btn');
+  const accountDropdown = document.getElementById('account-dropdown');
+  const dropdownMenu = document.getElementById('dropdown-menu');
+
+  if (accountBtn) {
+    accountBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      accountDropdown.classList.toggle('active');
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    if (!accountDropdown.contains(e.target)) {
+      accountDropdown.classList.remove('active');
+    }
+  });
+
+  updateAccountDropdown();
+});
+
+function updateAccountDropdown() {
+  const token = localStorage.getItem('token');
+  const user = getCurrentUser();
+  
+  const dropdownGuest = document.getElementById('dropdown-guest');
+  const dropdownUser = document.getElementById('dropdown-user');
+  const accountName = document.getElementById('account-name');
+  const userName = document.getElementById('user-name');
+  const userRole = document.getElementById('user-role');
+  const myListingsLink = document.getElementById('my-listings-link');
+
+  if (token && user) {
+    dropdownGuest.style.display = 'none';
+    dropdownUser.style.display = 'block';
+    accountName.textContent = user.name || 'Account';
+    userName.textContent = user.name;
+    userRole.textContent = user.role;
+    
+    if (user.role === 'Finder') {
+      myListingsLink.style.display = 'flex';
+      document.getElementById('create-listing-link').style.display = 'block';
+    }
+  } else {
+    dropdownGuest.style.display = 'block';
+    dropdownUser.style.display = 'none';
+    accountName.textContent = 'Account';
+  }
+}
+
+function getCurrentUser() {
+  const userStr = localStorage.getItem('user');
+  return userStr ? JSON.parse(userStr) : null;
+}
+
+function logout() {
+  localStorage.removeItem('token');
+  localStorage.removeItem('user');
+  window.location.href = 'index.html';
+}

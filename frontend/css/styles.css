@@ -29,13 +29,34 @@ body {
   --color-accent-hover: #58b966;
 }
 
-.divider {
- border: none;
+.divider-line {
+  border: none;
   height: 2px;
-  width: 50%;
-  background-color: #d8cfc4; /* warm beige tone */
-  margin: 2rem auto;
-  opacity: 0.6;       
+  background-color: #ddd;
+  margin: 3rem auto;
+  width: 900px;
+  display: block;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 3rem 0;
+  color: #7f8c8d;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+
+.divider span {
+  padding: 0 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .container {
@@ -84,27 +105,135 @@ nav {
   color: var(--color-primary-hover);
 }
 
-.login-link {
+/* Account Dropdown */
+.account-dropdown {
+  position: relative;
+}
+
+.account-btn {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  color: var(--color-primary);
-  font-size: 1.2rem;
-  font-weight: 700;
-  animation: popIn 0.6s ease;
+  gap: 0.5rem;
+  background: transparent;
+  border: none;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.3s;
 }
 
-.login-link i {
-  font-size: 2.4rem;
-  color: var(--color-primary);
-  transition: transform 0.3s ease;
+.account-btn:hover {
+  background-color: #f0f0f0;
 }
 
-.login-link:hover i {
-  color: var(--color-primary-hover);
+.account-btn i.fa-chevron-down {
+  font-size: 0.75rem;
+  transition: transform 0.3s;
 }
 
+.account-dropdown.active .account-btn i.fa-chevron-down {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  min-width: 250px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.account-dropdown.active .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Dropdown Header */
+.dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 8px 8px 0 0;
+  color: white;
+}
+
+.dropdown-header i {
+  font-size: 2rem;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.user-role {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* Dropdown Items */
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+.dropdown-item i {
+  width: 20px;
+  font-size: 1rem;
+  color: #667eea;
+}
+
+.logout-item {
+  color: #e74c3c;
+}
+
+.logout-item i {
+  color: #e74c3c;
+}
+
+.logout-item:hover {
+  background-color: #fee;
+}
+
+/* Dropdown Divider */
+.dropdown-divider {
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 0.5rem 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    right: -20px;
+    min-width: 220px;
+  }
+}
 .hero {
   background: var(--color-secondary);
   color: #333;
@@ -151,7 +280,6 @@ nav {
   font-family: "Outfit", sans-serif;
 }
 
-/* Listings */
 .listings {
   padding: 3rem 0;
 }
@@ -266,7 +394,7 @@ nav {
 .about-btn {
   display: block;
   width: fit-content;
-  margin: 1.5rem auto; /* center horizontally */
+  margin: 1.5rem auto;
   padding: 0.65rem 1.4rem;
   background-color: var(--color-primary);
   color: white;
@@ -276,10 +404,9 @@ nav {
   font-family: "Outfit", sans-serif;
   transition: background-color 0.3s;
   cursor: pointer;
-  font-size: 1.15rem; /* slightly larger text */
+  font-size: 1.15rem; 
 }
 
-/* keep the anchor inside from conflicting with the button styling */
 .about-btn .cafe-link {
   background: transparent;
   color: inherit;
@@ -291,13 +418,11 @@ nav {
 .about-btn:hover {
   background-color: var(--color-primary-hover);
 }
-/* ...existing code... */
 
 .impact-section {
   background-color: var(--color-bg);
   text-align: center;
   padding: 80px 20px;
-  border-top: 1px solid #f2e3d5;
 }
 
 .impact-container {

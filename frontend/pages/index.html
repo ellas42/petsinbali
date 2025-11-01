@@ -20,13 +20,57 @@
           <li id="create-listing-link" style="display: none">
             <a href="create-listing.html">Post Animal</a>
           </li>
-          <li class="login-link">
-            <a href="login.html"><i class="fa-solid fa-circle-user"></i></a>
-          </li>
-          <li id="logout-link" style="display: none">
-            <a href="#" onclick="logout()">Logout</a>
-          </li>
-        </ul>
+          <!-- Account Dropdown -->
+<li class="account-dropdown" id="account-dropdown">
+  <button class="account-btn" id="account-btn">
+    <i class="fa-solid fa-circle-user"></i>
+    <span id="account-name">Account</span>
+    <i class="fa-solid fa-chevron-down"></i>
+  </button>
+  
+  <div class="dropdown-menu" id="dropdown-menu">
+    <!-- When NOT logged in -->
+    <div class="dropdown-guest" id="dropdown-guest">
+      <a href="login.html" class="dropdown-item">
+        <i class="fa-solid fa-right-to-bracket"></i>
+        Login
+      </a>
+      <a href="register.html" class="dropdown-item">
+        <i class="fa-solid fa-user-plus"></i>
+        Register
+      </a>
+    </div>
+    
+    <!-- When logged in -->
+    <div class="dropdown-user" id="dropdown-user" style="display: none;">
+      <div class="dropdown-header">
+        <i class="fa-solid fa-user-circle"></i>
+        <div>
+          <p class="user-name" id="user-name">User Name</p>
+          <p class="user-role" id="user-role">Role</p>
+        </div>
+      </div>
+      <div class="dropdown-divider"></div>
+      <a href="profile.html" class="dropdown-item">
+        <i class="fa-solid fa-user"></i>
+        My Profile
+      </a>
+      <a href="my-listings.html" class="dropdown-item" id="my-listings-link" style="display: none;">
+        <i class="fa-solid fa-paw"></i>
+        My Listings
+      </a>
+      <a href="messages.html" class="dropdown-item">
+        <i class="fa-solid fa-message"></i>
+        Messages
+      </a>
+      <div class="dropdown-divider"></div>
+      <a href="#" class="dropdown-item logout-item" onclick="logout()">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Logout
+      </a>
+    </div>
+  </div>
+</li>
       </nav>
     </header>
 
@@ -72,7 +116,7 @@
       </section>
     </main>
 
-    <hr class="divider">
+    <hr class="divider-line">
 
     <section class="reason" id="reason">
       <div class="reason-title">
@@ -91,7 +135,7 @@
       </button>
     </section>
 
-    <hr class="divider">
+    <hr class="divider-line">
 
     <section id="community-impact" class="impact-section">
   <div class="impact-container">
@@ -122,7 +166,7 @@
 </section>
 
 
-    <hr class="divider">
+<hr class="divider-line">
 
     <section class="cafe-recommendations">
       <div class="descriptions">
@@ -143,13 +187,14 @@
       </div>
     </section>
 
+    <hr class="divider-line">
+
     <section class="help">
       <div class="help-content">
         <h2>How You Can Contribute</h2>
         <ul>
           <li>Adopt a loving pet from our listings</li>
           <li>Foster animals in need of temporary homes</li>
-          <li>Donate to support rescue and care efforts</li>
           <li>Volunteer with local animal shelters</li>
         </ul>
         <div class="divider">
