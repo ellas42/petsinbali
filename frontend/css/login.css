@@ -5,7 +5,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: "Outfit", sans-serif;
   background: var(--color-bg);
@@ -13,6 +12,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 :root {
@@ -21,12 +22,9 @@ body {
   --color-accent: #6bcb77;
   --color-text: #2c3e50;
   --color-text-p: #555;
-
   --color-bg: #fff9f4;
   --color-surface: #ffffff;
-  --color-text: #333333;
   --color-subtext: #666666;
-
   --color-primary-hover: #ff7a29;
   --color-accent-hover: #58b966;
 }
@@ -40,59 +38,56 @@ body {
 .auth-box {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: start;
-  background: none;
+  gap: 3rem;
+  background:none;
   padding: 3rem;
-  border-radius: 12px;
+  align-items: center;
 }
 
-.auth-box h1 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+.left-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.left-side h1 {
+  margin: 0;
   color: var(--color-text);
-  font-size: 2rem;
-  transform: translateY(7rem);
+  font-size: 2.5rem;
+  line-height: 1.2;
 }
 
-.auth-box > h1,
-.auth-box > p:first-of-type {
-  grid-column: 1 / 2;
-  align-self: center;
-}
-
-.auth-box .error-message,
-.auth-box .success-message,
-.auth-box form,
-.auth-box .auth-link {
-  grid-column: 2 / 3;
-}
-
-.auth-box > p {
-  margin-bottom: 2rem;
+.left-side > p {
+  margin: 0;
   color: var(--color-text-p);
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 .back-btn {
   display: inline-block;
-  padding: 8px 16px;
-  background-color: white;
+  padding: 10px 20px;
+  background-color: transparent;
   color: var(--color-text);
-  border: none;
+  border: 2px solid #ddd;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.2s ease-in-out;
-  position: absolute;
-  top: 20px;
-  left: 30px;
+  transition: all 0.3s ease;
+  width: fit-content;
+  margin-top: 1rem;
 }
 
 .back-btn:hover {
-  border: var(--color-primary-hover) solid 1px;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background-color: rgba(255, 145, 77, 0.05);
 }
 
-
+.right-side {
+  display: flex;
+  flex-direction: column;
+}
 
 .form-group {
   margin-bottom: 1.5rem;
@@ -107,44 +102,51 @@ body {
 
 .form-group input {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+  padding: 0.875rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
   font-size: 1rem;
-  transition: border-color 0.3s;
+  transition: all 0.3s;
+  font-family: "Outfit", sans-serif;
 }
 
 .form-group input:focus {
   outline: none;
   border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(255, 145, 77, 0.1);
 }
 
 .btn {
   width: 100%;
-  padding: 0.875rem;
+  padding: 1rem;
   background-color: var(--color-primary);
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s;
+  font-family: "Outfit", sans-serif;
 }
 
 .btn:hover {
   background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 145, 77, 0.3);
 }
 
 .btn:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+  transform: none;
 }
 
 .auth-link {
   text-align: center;
   margin-top: 1.5rem;
-  color: #7f8c8d;
+  color: var(--color-subtext);
+  font-size: 0.95rem;
 }
 
 .auth-link a {
@@ -157,20 +159,40 @@ body {
   text-decoration: underline;
 }
 
+/* Error and Success Messages */
 .error-message {
   background-color: #fee;
   color: #c33;
-  padding: 0.75rem;
-  border-radius: 6px;
+  padding: 0.875rem;
+  border-radius: 8px;
   margin-bottom: 1rem;
   display: none;
+  border-left: 4px solid #c33;
 }
 
 .success-message {
-  background-color: #efe;
-  color: #3c3;
-  padding: 0.75rem;
-  border-radius: 6px;
+  background-color: #d4edda;
+  color: #155724;
+  padding: 0.875rem;
+  border-radius: 8px;
   margin-bottom: 1rem;
   display: none;
+  border-left: 4px solid #28a745;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .auth-box {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .left-side h1 {
+    font-size: 2rem;
+  }
+
+  .left-side > p {
+    font-size: 1rem;
+  }
 }
