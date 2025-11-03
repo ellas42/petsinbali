@@ -21,7 +21,7 @@ const validateRegister = (data) => {
 const validateLogin = (data) => {
   const schema = Joi.object({
     email: Joi.string().email().required(),
-    password: Joi.string().min(6).required()
+    password: Joi.string().min(8).pattern(new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%&*]')).required().messages({ 'string.pattern.base': 'Password must contain a lowercase, number and symbols' }),
   });
   return schema.validate(data);
 };
@@ -32,7 +32,7 @@ const validateListing = (data) => {
     type: Joi.string().valid('Dog', 'Cat', 'Bird', 'Rabbit', 'Other').required(),
     description: Joi.string().min(20).max(2000).required(),
     location: Joi.string().required(),
-    photos: Joi.array().items(Joi.string().uri()).max(5),
+    photos: Joi.array().items(Joi.string().uri()).max(7),
     breed: Joi.string().max(50).optional(),
     age: Joi.string().max(20).optional(),
     gender: Joi.string().valid('Male', 'Female', 'Unknown').optional(),
