@@ -15,15 +15,15 @@ body {
 
 :root {
   --color-primary: #ff914d;
-  --color-secondary: #ffd6a5; 
+  --color-secondary: #ffd6a5;
   --color-accent: #6bcb77;
   --color-text: #2c3e50;
   --color-text-p: #555;
 
-  --color-bg: #fff9f4; 
-  --color-surface: #ffffff; 
-  --color-text: #333333; 
-  --color-subtext: #666666; 
+  --color-bg: #fff9f4;
+  --color-surface: #ffffff;
+  --color-text: #333333;
+  --color-subtext: #666666;
 
   --color-primary-hover: #ff7a29;
   --color-accent-hover: #58b966;
@@ -48,7 +48,7 @@ body {
 
 .divider::before,
 .divider::after {
-  content: '';
+  content: "";
   flex: 1;
   border-bottom: 1px solid #ddd;
 }
@@ -141,7 +141,7 @@ nav {
   right: 0;
   background: white;
   border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   min-width: 250px;
   opacity: 0;
   visibility: hidden;
@@ -236,13 +236,13 @@ nav {
 }
 
 .hero::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100;
-  height: 200px;
-  background-image: url('../images/JNkXFwEwGu.gif');
+  height: 400px;
+  background-image: url("../images/JNkXFwEwGu.gif");
   background-repeat: repeat-x;
   background-position: bottom-center;
   background-size: contain;
@@ -265,7 +265,6 @@ nav {
   opacity: 0.95;
 }
 
-/* Filters */
 .filters {
   background-color: var(--color-bg);
   padding: 2rem 0;
@@ -418,7 +417,7 @@ nav {
   font-family: "Outfit", sans-serif;
   transition: background-color 0.3s;
   cursor: pointer;
-  font-size: 1.15rem; 
+  font-size: 1.15rem;
 }
 
 .about-btn .cafe-link {
@@ -469,7 +468,7 @@ nav {
   background-color: #fff;
   border-radius: 16px;
   padding: 25px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease;
 }
 
@@ -488,221 +487,219 @@ nav {
   font-size: 1rem;
 }
 
-
-
 .cafe-recommendations {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 3rem 0;
-    }
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 0;
+}
 
-    .descriptions {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
+.descriptions {
+  text-align: center;
+  margin-bottom: 3rem;
+}
 
-    .descriptions h2 {
-      font-size: 2.5rem;
-      color: #2c3e50;
-      margin-bottom: 1rem;
-    }
+.descriptions h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
 
-    .descriptions p {
-      font-size: 1.2rem;
-      color: #7f8c8d;
-      max-width: 600px;
-      margin: 0 auto;
-    }
+.descriptions p {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  max-width: 600px;
+  margin: 0 auto;
+}
 
-    .carousel {
-      position: relative;
-      padding: 0 60px;
-    }
+.carousel {
+  position: relative;
+  padding: 0 60px;
+}
 
-    .carousel-track {
-      display: flex;
-      gap: 2rem;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      padding: 1rem 0;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
+.carousel-track {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
 
-    .carousel-track::-webkit-scrollbar {
-      display: none;
-    }
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
 
-    .cafe-card {
-      min-width: 320px;
-      max-width: 320px;
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-      flex-shrink: 0;
-    }
+.cafe-card {
+  min-width: 320px;
+  max-width: 320px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  flex-shrink: 0;
+}
 
-    .cafe-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    }
+.cafe-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
 
-    .cafe-images {
-      position: relative;
-      height: 200px;
-      overflow: hidden;
-    }
+.cafe-images {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
 
-    .cafe-image-slider {
-      display: flex;
-      height: 100%;
-      transition: transform 0.5s ease;
-    }
+.cafe-image-slider {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
 
-    .cafe-image {
-      min-width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+.cafe-image {
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    .image-dots {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 6px;
-      z-index: 10;
-    }
+.image-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+}
 
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.5);
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background 0.3s;
+}
 
-    .dot.active {
-      background: white;
-      width: 24px;
-      border-radius: 4px;
-    }
+.dot.active {
+  background: white;
+  width: 24px;
+  border-radius: 4px;
+}
 
-    .cafe-info {
-      padding: 1.25rem;
-    }
+.cafe-info {
+  padding: 1.25rem;
+}
 
-    .cafe-name {
-      font-size: 1.25rem;
-      color: #2c3e50;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
+.cafe-name {
+  font-size: 1.25rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
 
-    .cafe-location {
-      color: #7f8c8d;
-      font-size: 0.85rem;
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+.cafe-location {
+  color: #7f8c8d;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 
-    .cafe-description {
-      color: #555;
-      line-height: 1.5;
-      margin-bottom: 1rem;
-      font-size: 0.85rem;
-    }
+.cafe-description {
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
 
-    .cafe-features {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
+.cafe-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
 
-    .feature-tag {
-      background-color: #e8f5e9;
-      color: #2e7d32;
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
+.feature-tag {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
 
-    .cafe-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background-color: var(--color-primary);
-      color: white;
-      padding: 0.65rem 1.25rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: background-color 0.3s;
-    }
+.cafe-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.65rem 1.25rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
 
-    .cafe-link:hover {
-      background-color: var(--color-primary-hover);
-    }
+.cafe-link:hover {
+  background-color: var(--color-primary-hover);
+}
 
-    .carousel-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: white;
-      border: none;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      font-size: 1.5rem;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      z-index: 10;
-      transition: all 0.3s;
-      color: var(--color-primary);
-    }
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  transition: all 0.3s;
+  color: var(--color-primary);
+}
 
-    .carousel-button:hover {
-      background-color: var(--color-primary-hover);
-      color: white;
-      box-shadow: 0 6px 16px rgba(207, 144, 72, 0.4);
-    }
+.carousel-button:hover {
+  background-color: var(--color-primary-hover);
+  color: white;
+  box-shadow: 0 6px 16px rgba(207, 144, 72, 0.4);
+}
 
-    .carousel-button.left {
-      left: 0;
-    }
+.carousel-button.left {
+  left: 0;
+}
 
-    .carousel-button.right {
-      right: 0;
-    }
+.carousel-button.right {
+  right: 0;
+}
 
-    @media (max-width: 768px) {
-      .carousel {
-        padding: 0 20px;
-      }
+@media (max-width: 768px) {
+  .carousel {
+    padding: 0 20px;
+  }
 
-      .cafe-card {
-        min-width: 300px;
-      }
+  .cafe-card {
+    min-width: 300px;
+  }
 
-      .carousel-button {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-      }
+  .carousel-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
 
-      .descriptions h2 {
-        font-size: 2rem;
-      }
-    }
+  .descriptions h2 {
+    font-size: 2rem;
+  }
+}
 
 .help {
   padding: 5rem 0;
@@ -747,7 +744,7 @@ nav {
 
 .divider::before,
 .divider::after {
-  content: '';
+  content: "";
   flex: 1;
   border-bottom: 1px solid #ddd;
 }
@@ -820,4 +817,49 @@ footer {
   .hero h2 {
     font-size: 1.8rem;
   }
+}
+
+.report {
+  background-color: var(--color-bg);
+  padding: 5rem 20px;
+  text-align: center;
+}
+
+.report h2 {
+  font-size: 2rem;
+  color: rgb(255, 0, 0);
+  margin-bottom: 1.5rem;
+}
+
+.report p {
+  font-size: 1.2rem;
+  color: var(--color-text-p);
+  max-width: 700px;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+
+.report .report-button {
+  margin-top: 2rem;
+  padding: 1rem 2.5rem;
+  background-color: rgb(255, 0, 0);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.report .report-button:hover {
+  background-color: #cc0000;
+  transform: translateY(-2px);
+}
+
+.report .report-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
 }
