@@ -123,7 +123,7 @@ function viewListing(id) {
 window.addEventListener("DOMContentLoaded", () => {
   if (isLoggedIn()) {
     const user = getCurrentUser();
-    //I HAVE NO IDEA WHY I COMMENTED TS ???????
+    //THESE DOESNT WORK TOUCH IT AND IM KILLIMG YOU
     //document.getElementById("login-link").style.display = "none";
     //document.getElementById("register-link").style.display = "none";
     //document.getElementById("logout-link").style.display = "block";
