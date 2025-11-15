@@ -74,7 +74,6 @@ nav {
   color: var(--color-primary);
 }
 
-/* Main Content - Split Layout */
 body {
   display: grid;
   grid-template-rows: auto 1fr;
@@ -148,7 +147,6 @@ header {
   box-shadow: 0 4px 12px rgba(255, 145, 77, 0.3);
 }
 
-/* Right Side - Form */
 .right-side {
   padding: 4rem 3rem;
   background: white;
@@ -239,7 +237,6 @@ header {
   transform: none;
 }
 
-/* Responsive */
 @media (max-width: 968px) {
   body {
     grid-template-columns: 1fr;
