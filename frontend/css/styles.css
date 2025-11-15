@@ -122,10 +122,6 @@ nav {
   border-radius: 6px;
 }
 
-.account-btn:hover {
-  background-color: #f0f0f0;
-}
-
 .account-btn i.fa-chevron-down {
   font-size: 0.75rem;
   transition: transform 0.3s;
@@ -775,7 +771,6 @@ nav {
   background-color: var(--color-primary-hover);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .help {
     padding: 3rem 0;
@@ -795,7 +790,6 @@ nav {
   }
 }
 
-/* Footer */
 footer {
   background-color: var(--color-subtext);
   color: white;
@@ -827,7 +821,7 @@ footer {
 
 .report h2 {
   font-size: 2rem;
-  color: rgb(255, 0, 0);
+  color:var(--color-text);
   margin-bottom: 1.5rem;
 }
 
