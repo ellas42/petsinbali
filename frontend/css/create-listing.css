@@ -7,11 +7,24 @@
       box-sizing: border-box;
     }
 
+    :root {
+  --color-primary: #ff914d;
+  --color-secondary: #ffd6a5;
+  --color-accent: #6bcb77;
+  --color-text: #2c3e50;
+  --color-text-p: #555;
+  --color-bg: #fff9f4;
+  --color-surface: #ffffff;
+  --color-subtext: #666666;
+  --color-primary-hover: #ff7a29;
+  --color-accent-hover: #58b966;
+}
+
     body {
       font-family: "Outfit", sans-serif;
       line-height: 1.6;
       color: #333;
-      background-color: #f8f9fa;
+      background-color: var(--color-bg);
     }
 
     .container {
@@ -34,7 +47,7 @@
     }
 
     .logo {
-      color: #e67e22;
+      color: var(--color-primary);
       font-size: 1.5rem;
       font-weight: bold;
       text-decoration: none;
@@ -47,14 +60,14 @@
     }
 
     .nav-links a {
-      color: #333;
+      color: var(--color-primary);
       text-decoration: none;
       transition: color 0.3s;
       font-weight: 500;
     }
 
     .nav-links a:hover {
-      color: #e67e22;
+      color: var(--color-primary-hover);
     }
 
     /* Main Content */
@@ -73,12 +86,12 @@
 
     .form-container h1 {
       margin-bottom: 0.5rem;
-      color: #2c3e50;
+      color: var(--color-text);
     }
 
     .form-container > p {
       margin-bottom: 2rem;
-      color: #7f8c8d;
+      color: var(--color-text-p);
     }
 
     .form-row {
@@ -96,7 +109,7 @@
       display: block;
       margin-bottom: 0.5rem;
       font-weight: 600;
-      color: #2c3e50;
+      color: var(--color-text);
     }
 
     .form-group input,
@@ -119,7 +132,7 @@
     .form-group select:focus,
     .form-group textarea:focus {
       outline: none;
-      border-color: #667eea;
+      border-color: black;
     }
 
     .checkbox-group {
@@ -143,7 +156,7 @@
     }
 
     .photo-upload:hover {
-      border-color: #667eea;
+      border-color: black;
     }
 
     .photo-upload input[type="file"] {
@@ -166,7 +179,8 @@
 
     .btn {
       padding: 0.875rem 2rem;
-      background-color: #667eea;
+      background-color: var(--color-primary);
+      font-family: "Outfit", sans-serif;
       color: white;
       border: none;
       border-radius: 6px;
@@ -177,7 +191,7 @@
     }
 
     .btn:hover {
-      background-color: #5568d3;
+      background-color: var(--color-primary-hover);
     }
 
     .btn:disabled {
