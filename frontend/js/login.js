@@ -52,7 +52,7 @@ const API_URL = 'http://localhost:5000/api';
         
         // Redirect to home
         setTimeout(() => {
-          window.location.href = 'index.html';
+          window.location.href = 'frontend/index.html';
         }, 1000);
 
       } catch (error) {

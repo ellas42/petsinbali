@@ -21,7 +21,7 @@ const validateRegister = (data) => {
 const validateLogin = (data) => {
   const schema = Joi.object({
     email: Joi.string().email().required(),
-    password: Joi.string().min(8).pattern(new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%&*]')).required().messages({ 'string.pattern.base': 'Password must contain a lowercase, number and symbols' }),
+    password: Joi.string().required().messages({ 'string.pattern.base': 'Password must contain a lowercase, number and symbols' }),
   });
   return schema.validate(data);
 };

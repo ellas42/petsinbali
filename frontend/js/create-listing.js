@@ -98,7 +98,7 @@ const API_URL = 'http://localhost:5000/api';
         showSuccess('Animal posted successfully! Redirecting...');
         
         setTimeout(() => {
-          window.location.href = '../index.html';
+          window.location.href = 'frontend/index.html';
         }, 2000);
 
       } catch (error) {
