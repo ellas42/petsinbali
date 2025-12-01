@@ -33,26 +33,34 @@ const validateRegister = (data) => {
 
 
 //validation login
-export const login = async (req, res) => {
-  const { error } = loginSchema.validate(req.body);
-  if (error) {
-    return res.status(400).json({ message: error.details[0].message });
-  }
+// export const login = async (req, res) => {
+//   const { error } = loginSchema.validate(req.body);
+//   if (error) {
+//     return res.status(400).json({ message: error.details[0].message });
+//   }
 
-  const { email, password } = req.body;
+//   const { email, password } = req.body;
 
-  const user = await User.findOne({ email });
-  if (!user) {
-    return res.status(400).json({ message: "Invalid email or password" });
-  }
+//   const user = await User.findOne({ email });
+//   if (!user) {
+//     return res.status(400).json({ message: "Invalid email or password" });
+//   }
 
-  // compare
-  const isMatch = await bcrypt.compare(password, user.password);
-  if (!isMatch) {
-    return res.status(400).json({ message: "Invalid email or password" });
-  }
+//   // compare
+//   const isMatch = await bcrypt.compare(password, user.password);
+//   if (!isMatch) {
+//     return res.status(400).json({ message: "Invalid email or password" });
+//   }
 
-  res.json({ message: "Login successful" });
+//   res.json({ message: "Login successful" });
+// };
+
+const validateLogin = (data) => {
+  const schema = Joi.object({
+    email: Joi.string().trim().lowercase().email().required(),
+    password: Joi.string().required() 
+  });
+  return schema.validate(data);
 };
 
 

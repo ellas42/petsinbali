@@ -71,18 +71,18 @@ router.post("/login", async (req, res) => {
     // Find user
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(401).json({ error: "Invalid credentials" });
+      return res.status(401).json({ error: "The email or password you entered is incorrect" });
     }
 
     // Check if banned
     if (user.isBanned) {
-      return res.status(403).json({ error: "Account has been banned" });
+      return res.status(403).json({ error: "Your account has been suspended. Please contact support" });
     }
 
     // Check password
     const isMatch = await user.comparePassword(password);
     if (!isMatch) {
-      return res.status(401).json({ error: "Invalid credentials" });
+      return res.status(401).json({ error: "The email or password you entered is incorrect" });
     }
 
     // Generate token
