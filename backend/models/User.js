@@ -54,19 +54,21 @@ const userSchema = new mongoose.Schema({
   resetPasswordExpire: Date
 });
 
-// Hash password before saving
+// pw hashing
 userSchema.pre('save', async function(next) {
   if (!this.isModified('password')) return next();
-  this.password = await bcrypt.hash(this.password, 10);
+
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
   next();
 });
 
-// Method to compare passwords
+// compare passwords
 userSchema.methods.comparePassword = async function(candidatePassword) {
   return await bcrypt.compare(candidatePassword, this.password);
 };
 
-// Reset Password 
+// reset pw
 userSchema.methods.getResetPasswordToken = function(){
   const resetToken = crypto.randomBytes(20).toString('hex');
   this.resetPasswordToken = crypto

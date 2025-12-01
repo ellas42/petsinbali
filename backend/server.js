@@ -104,7 +104,7 @@ app.get('/api/test-db', async (req, res) => {
     
     res.json({ 
       mongoStatus: states[status],
-      message: status === 1 ? '✅ Database connected' : '❌ Database not connected'
+      message: status === 1 ? 'Database connected' : 'Database NOT connected'
     });
   } catch (error) {
     res.json({ error: error.message });

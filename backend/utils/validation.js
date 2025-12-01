@@ -1,4 +1,7 @@
 const Joi = require('joi');
+//for login validation
+const bcrypt = require('bcryptjs');
+const user = require('../models/User.js');
 
 const validateRegister = (data) => {
   const schema = Joi.object({
@@ -18,13 +21,40 @@ const validateRegister = (data) => {
   return schema.validate(data);
 };
 
-const validateLogin = (data) => {
-  const schema = Joi.object({
-    email: Joi.string().email().required(),
-    password: Joi.string().required().messages({ 'string.pattern.base': 'Password must contain a lowercase, number and symbols' }),
-  });
-  return schema.validate(data);
+//memorial kebodohan
+
+//const validateLogin = (data) => {
+  //const schema = Joi.object({
+    //email: Joi.string().email().required(),
+    //password: Joi.string() ????????
+  //});
+  //return schema.validate(data);
+//};
+
+
+//validation login
+export const login = async (req, res) => {
+  const { error } = loginSchema.validate(req.body);
+  if (error) {
+    return res.status(400).json({ message: error.details[0].message });
+  }
+
+  const { email, password } = req.body;
+
+  const user = await User.findOne({ email });
+  if (!user) {
+    return res.status(400).json({ message: "Invalid email or password" });
+  }
+
+  // compare
+  const isMatch = await bcrypt.compare(password, user.password);
+  if (!isMatch) {
+    return res.status(400).json({ message: "Invalid email or password" });
+  }
+
+  res.json({ message: "Login successful" });
 };
+
 
 const validateListing = (data) => {
   const schema = Joi.object({
