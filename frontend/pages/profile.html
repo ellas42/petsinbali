@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pets in Bali - Profile</title>
+    <link rel="stylesheet" href="../css/profile.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    </head>
+    <body>
+        <nav class="container">
+      <a href="index.html" class="logo">Pets in Bali</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="create-listing.html">Post Animal</a></li>
+        <li><a href="#" onclick="logout()">Logout</a></li>
+      </ul>
+    </nav>
+
+    <div class="upper-side">
+        <div class="profile-picture">
+            <img id="profile-img" src="../images/default-profile.png" alt="Profile Picture">
+            <input type="file" id="upload-btn" accept="image/*" />
+            <button id="change-pic-btn">Change Picture</button>
+            </div>
+            <div class="right-side">
+                <h1 id="user-name-header">User Name</h1>
+                <p id="user-location"></p> <!--javascript-->
+                <p id="user-email"></p>
+                <!-- ...existing code... -->
+<button id="edit-profile-btn">Edit Profile</button>
+<script src="../js/profile.js" defer></script>
+            </div>
+    </div>
+    
+    <div class="listing-posted">
+        <h1 class="no-listing">You haven't list any animals yet. Shall we?</h1>
+        <div class="listings">
+            <div class="listing-containers">
+                <!--javascript-->
+            </div>
+        </div>
+    </div>
+    </body>
+    <script src="../js/profile.js" defer></script>
+</html>

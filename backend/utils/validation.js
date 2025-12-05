@@ -21,17 +21,6 @@ const validateRegister = (data) => {
   return schema.validate(data);
 };
 
-//memorial kebodohan
-
-//const validateLogin = (data) => {
-  //const schema = Joi.object({
-    //email: Joi.string().email().required(),
-    //password: Joi.string() ????????
-  //});
-  //return schema.validate(data);
-//};
-
-
 //validation login
 // export const login = async (req, res) => {
 //   const { error } = loginSchema.validate(req.body);
