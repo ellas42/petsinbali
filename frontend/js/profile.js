@@ -15,6 +15,7 @@ document.getElementById("edit-profile-btn")?.addEventListener("click", async () 
   if (!token) return window.location.href = "login.html";
 
   try {
+    //FIX FETCH URL !!!!!!!!!!!!!! -- apply to every one of them
     const res = await fetch("https://your-api.com/api/user/me", {
       headers: { Authorization: `Bearer ${token}` }
     });
@@ -37,6 +38,7 @@ document.getElementById("edit-profile-btn")?.addEventListener("click", async () 
 
 async function loadProfile() {
     try {
+        //FIX THIS TOO
         const res = await fetch("http://localhost:5000/api/users/me", {
             headers: { "Authorization": `Bearer ${token}` }
         });
@@ -64,6 +66,7 @@ async function loadProfile() {
 //load user listings
 async function loadListings() {
     try {
+        ///!!!!!!!!!!!!!!!!!!!!!!!!!
         const res = await fetch("http://localhost:5000/api/listings/my-listings", {
             headers: { "Authorization": `Bearer ${token}` }
         });
@@ -73,6 +76,7 @@ async function loadListings() {
         listingContainer.innerHTML = "";
 
         if (!listings.length) {
+            //style text edit pls
             noListingText.style.display = "block";
             return;
         }
@@ -119,6 +123,7 @@ uploadBtn.addEventListener("change", async (e) => {
     formData.append("profilePic", file);
 
     try {
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         const res = await fetch("http://localhost:5000/api/users/update-picture", {
             method: "PUT",
             headers: { "Authorization": `Bearer ${token}` },

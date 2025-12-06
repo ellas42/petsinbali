@@ -23,25 +23,53 @@
     <div class="upper-side">
         <div class="profile-picture">
             <img id="profile-img" src="../images/default-profile.png" alt="Profile Picture">
-            <input type="file" id="upload-btn" accept="image/*" />
-            <button id="change-pic-btn">Change Picture</button>
             </div>
             <div class="right-side">
                 <h1 id="user-name-header">User Name</h1>
                 <p id="user-location"></p> <!--javascript-->
                 <p id="user-email"></p>
-                <!-- ...existing code... -->
 <button id="edit-profile-btn">Edit Profile</button>
 <script src="../js/profile.js" defer></script>
             </div>
     </div>
     
     <div class="listing-posted">
-        <h1 class="no-listing">You haven't list any animals yet. Shall we?</h1>
+        <h1 class="no-listing">You haven't list any animals yet.</h1>
         <div class="listings">
             <div class="listing-containers">
                 <!--javascript-->
             </div>
+        </div>
+    </div>
+
+    <div class="edit-profile-page">
+        <div class="edit-left-side">
+            <div class="image"></div> <!--javascript????????????-->
+            <input type="file" id="upload-btn" accept="image/*" />
+            <button id="change-pic-btn">Change Picture</button>
+        </div>
+
+        <div class="edit-right-side">
+            <div class="edit-container">
+                <form id="edit">
+                    <div class="edit-form">
+                        <label for="name">Display Name</label>
+                        <input type="text" id="name" placeholder="What should we call you?" /> <!--required or not?-->
+                    </div>
+                    <div class="edit-form">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="Your phone number"  />
+                    </div>
+                    <div class="edit-form">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Your email address"  />
+                    </div>
+                    <div class="edit-form">
+                        <label for="bio">Bio</label>
+                        <textarea id="bio" placeholder="Describe yourself for others..." rows="4"></textarea>
+                    </div>
+                </form>
+            </div>"
         </div>
     </div>
     </body>
