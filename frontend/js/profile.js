@@ -3,6 +3,8 @@ const API_URL = 'http://localhost:5000/api';
 const userNameHeader = document.getElementById("user-name-header");
 const userLocation = document.getElementById("user-location");
 const userEmail = document.getElementById("user-email");
+const userPhone = document.getElementById("user-phone");
+const userBio = document.getElementById("user-bio");
 const profileImg = document.getElementById("profile-img");
 const uploadBtn = document.getElementById("upload-btn");
 const changePicBtn = document.getElementById("change-pic-btn");
@@ -34,7 +36,9 @@ async function loadProfile() {
 
         userNameHeader.textContent = data.name;
         userLocation.textContent = data.location;
+        userPhone.textContent = data.phone;
         userEmail.textContent = data.email;
+        userBio.textContent = data.bio;
 
         if (data.profilePic) {
             profileImg.src = data.profilePic;

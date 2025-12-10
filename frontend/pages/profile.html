@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pets in Bali - Profile</title>
     <link rel="stylesheet" href="../css/profile.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     />
-    </head>
-    <body>
-        <nav class="container">
+  </head>
+  <body>
+    <nav class="container">
       <a href="index.html" class="logo">Pets in Bali</a>
       <ul class="nav-links">
         <li><a href="create-listing.html">Post Animal</a></li>
@@ -20,57 +20,104 @@
     </nav>
 
     <div class="upper-side">
-        <div class="profile-picture">
-            <img id="profile-img" src="../images/default-profile.png" alt="Profile Picture">
-            </div>
-            <div class="right-side">
-                <h1 id="user-name-header">User Name</h1>
-                <p id="user-location"></p> <!--javascript-->
-                <p id="user-email"></p>
-<button id="edit-profile-btn">Edit Profile</button>
-<script src="../js/profile.js" defer></script>
-            </div>
+  <div class="profile-picture">
+    <div class="profile-img-wrapper">
+      <img
+        src="../images/default-profile.png"
+        alt="Profile Picture"
+        class="profile-img-actual"
+      />
+
+      <div class="profile-icon-wrapper">
+        <i class="fa-solid fa-user"></i>
+      </div>
     </div>
-    
+  </div>
+</div>
+
+      <div class="right-side">
+        <h1 id="user-name-header">Display Name</h1>
+        <p id="user-location"></p>
+        <p id="user-phone"></p>
+        <p id="user-email"></p>
+        <textarea id="user-bio" rows="4" readonly></textarea>
+        <button id="edit-profile-btn">Edit Profile</button>
+        <script src="../js/profile.js" defer></script>
+      </div>
+    </div>
+
     <div class="listing-posted">
-        <h1 class="no-listing">You haven't list any animals yet.</h1>
-        <div class="listings">
-            <div class="listing-containers">
-                <!--javascript-->
-            </div>
+      <h1 class="no-listing">You haven't list any animals yet.</h1>
+      <div class="listings">
+        <div class="listing-containers">
+          <!--javascript-->
         </div>
+      </div>
     </div>
 
     <div class="edit-profile-page">
+      <div>
         <div class="edit-left-side">
-            <div class="image"></div> <!--javascript????????????-->
-            <input type="file" id="upload-btn" accept="image/*" />
-            <button id="change-pic-btn">Change Picture</button>
+          <div class="image"></div>
+          <input type="file" id="upload-btn" accept="image/*" />
+          <button type="button" id="change-pic-btn">Change Picture</button>
         </div>
 
         <div class="edit-right-side">
-            <div class="edit-container">
-                <form id="edit">
-                    <div class="edit-form">
-                        <label for="name">Display Name</label>
-                        <input type="text" id="name" placeholder="What should we call you?" /> <!--required or not?-->
-                    </div>
-                    <div class="edit-form">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" placeholder="Your phone number"  />
-                    </div>
-                    <div class="edit-form">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="Your email address"  />
-                    </div>
-                    <div class="edit-form">
-                        <label for="bio">Bio</label>
-                        <textarea id="bio" placeholder="Describe yourself for others..." rows="4"></textarea>
-                    </div>
-                </form>
-            </div>"
+          <div class="edit-container">
+            <h2>Edit Profile</h2>
+            <form id="edit-form">
+              <div class="edit-form">
+                <label for="edit-name">Display Name</label>
+                <input
+                  type="text"
+                  id="edit-name"
+                  placeholder="What should we call you?"
+                  required
+                />
+              </div>
+              <div class="edit-form">
+                <label for="edit-phone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="edit-phone"
+                  placeholder="Your phone number"
+                />
+              </div>
+              <div class="edit-form">
+                <label for="edit-email">Email</label>
+                <input
+                  type="email"
+                  id="edit-email"
+                  placeholder="Your email address"
+                  required
+                />
+              </div>
+              <div class="edit-form">
+                <label for="edit-bio">Bio</label>
+                <textarea
+                  id="edit-bio"
+                  placeholder="Describe yourself for others..."
+                  rows="4"
+                ></textarea>
+              </div>
+              <div class="form-buttons">
+                <button type="submit" class="save-btn" id="save-changes-btn">
+                  Save Changes
+                </button>
+                <button
+                  type="button"
+                  class="cancel-btn"
+                  id="discard-changes-btn"
+                >
+                  Discard Changes
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
-    </body>
-    <script src="../js/profile.js" defer></script>
+  </body>
+  <script src="../js/profile.js" defer></script>
 </html>
