@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pets in Bali - Profile</title>
+    <link rel="stylesheet" href="../css/page-listing.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav class="container">
+        <div class="logo">Pets in Bali</div>
+        <ul class="nav-links">
+          <li><a href="#reason">About</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li id="create-listing-link" style="display: none">
+            <a href="create-listing.html">Post Animal</a>
+          </li>
+<li class="account-dropdown" id="account-dropdown">
+  <button class="account-btn" id="account-btn">
+    <i class="fa-solid fa-circle-user"></i>
+  </button>
+  
+  <div class="dropdown-menu" id="dropdown-menu">
+    <div class="dropdown-guest" id="dropdown-guest">
+      <a href="login.html" class="dropdown-item">
+        <i class="fa-solid fa-right-to-bracket"></i>
+        Login
+      </a>
+      <a href="register.html" class="dropdown-item">
+        <i class="fa-solid fa-user-plus"></i>
+        Register
+      </a>
+    </div>
+    
+    <div class="dropdown-user" id="dropdown-user" style="display: none;">
+      <div class="dropdown-header">
+        <i class="fa-solid fa-user-circle"></i>
+        <div>
+          <p class="user-name" id="user-name">User Name</p>
+          <p class="user-role" id="user-role">Role</p>
+        </div>
+      </div>
+      <div class="dropdown-divider"></div>
+      <a href="profile.html" class="dropdown-item">
+        <i class="fa-solid fa-user"></i>
+        My Profile
+      </a>
+      <a href="my-listings.html" class="dropdown-item" id="my-listings-link" style="display: none;">
+        <i class="fa-solid fa-paw"></i>
+        My Listings
+      </a>
+      <a href="messages.html" class="dropdown-item">
+        <i class="fa-solid fa-message"></i>
+        Messages
+      </a>
+      <div class="dropdown-divider"></div>
+      <a href="#" class="dropdown-item logout-item" onclick="logout()">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Logout
+      </a>
+    </div>
+  </div>
+</li>
+      </nav>
+    </header>
+
+    <main>
+        <section class="picture">
+            <img class="listing-image" alt="Listing Image" />
+            <div class="no-image-icon" id="no-image-icon" style="display: none;">
+                <i class="fa-solid fa-image"></i>
+            </div>
+        </section>
+        <section class="details">
+            <div class="listing-title"><!--javascript-->
+            </div>
+            <div class="listing-abouts"></div>
+            <div class="listing-description"></div>
+        </section>
+
+        <section class="buttons">
+            <button class="message-btn" id="message-btn">Chat with Owner</button>
+            <button class="share-btn" id="share-btn">Share this List</button>
+        </section>
+
+        <section class="report">
+            <button class="report-btn" id="report-btn">Report this List</button>
+            <div id="report-reason" style="display: none;">
+                <h3>Report Reason</h3>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="report-reason" value="selling" required />
+                        <span>Selling Animals for Profit</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="report-reason" value="fake" required />
+                        <span>Fake Listing</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="report-reason" value="spam" required />
+                        <span>Spam Listing</span>
+                    </label>
+                    <label class="radio-label">
+                    <input type="radio" name="report-reason" value="dislike" required />
+                    <span>I just don't like it</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="report-reason" value="others" required />
+                        <span>Others</span>
+                    </label>
+                </div>
+
+                <textarea id="others-text" placeholder="Please tell us your reason..." rows="4" style="display: none; margin-top: 1rem;"></textarea>
+                <div class="report-actions" style="margin-top: 1rem;">
+                    <button id="submit-report-btn">Submit Report</button>
+                    <button id="cancel-report-btn">Cancel</button>
+                </div>
+            </div>
+        </section>
+  </body>
+</html>
