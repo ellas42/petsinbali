@@ -59,7 +59,7 @@ const validateListing = (data) => {
     type: Joi.string().valid('Dog', 'Cat', 'Bird', 'Rabbit', 'Other').required(),
     description: Joi.string().min(20).max(2000).required(),
     location: Joi.string().required(),
-    photos: Joi.array().items(Joi.string().uri()).max(7),
+    photos: Joi.array().items(Joi.string().uri()).max(5),
     breed: Joi.string().max(50).optional(),
     age: Joi.string().max(20).optional(),
     gender: Joi.string().valid('Male', 'Female', 'Unknown').optional(),

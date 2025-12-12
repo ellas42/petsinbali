@@ -28,6 +28,57 @@ const API_URL = 'http://localhost:5000/api';
       successEl.style.display = 'block';
     }
 
+    //photos input
+    const photosInput = document.getElementById('photos');
+    const photosPreview = document.getElementById('photo-preview');
+
+    function updatePreview() {
+      const previewContainer = document.getElementById('photo-preview');
+      previewContainer.innerHTML = '';
+
+      selectedPhotos.forEach((file, index) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const div = document.createElement('div');
+          div.className = 'photo-item';
+          div.style.position = 'relative';
+      div.style.display = 'inline-block';
+      div.style.margin = '0.5rem';
+
+      const img = document.createElement('img');
+      img.src = e.target.result;
+      img.style.width = '150px';
+      img.style.height = '150px';
+      img.style.objectFit = 'cover';
+      img.style.borderRadius = '6px';
+
+      const removeBtn = document.createElement('button');
+      removeBtn.textContent = '×';
+      removeBtn.style.position = 'absolute';
+      removeBtn.style.top = '5px';
+      removeBtn.style.right = '5px';
+       removeBtn.style.background = 'rgba(255, 255, 255, 0.8)';
+      removeBtn.style.border = 'none';
+      removeBtn.style.borderRadius = '50%';
+      removeBtn.style.width = '20px';
+      removeBtn.style.height = '20px';
+      removeBtn.style.cursor = 'pointer';
+      removeBtn.style.fontSize = '14px';
+      removeBtn.style.fontWeight = 'bold';
+      removeBtn.onclick = () => {
+        selectedPhotos.splice(index, 1);
+        updatePreview();
+      };
+
+      div.appendChild(img);
+      div.appendChild(removeBtn);
+      previewContainer.appendChild(div);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+    
+
     // Photo preview
     document.getElementById('photos').addEventListener('change', (e) => {
       const files = Array.from(e.target.files);
@@ -60,21 +111,63 @@ const API_URL = 'http://localhost:5000/api';
     document.getElementById('listing-form').addEventListener('submit', async (e) => {
       e.preventDefault();
 
+      const requiredFields = [
+        { id: 'name', label: 'Animal Name'},
+        { id: 'type', label: 'Animal Type'},
+        { id: 'location', label: 'Location' },
+        { id: 'description', label: 'Description' }
+      ];
+
+      for (const field of requiredFields) {
+        const value = document.getElementById(field.id).value.trim();
+        if (!value) {
+          showError(`${field.label} is required`);
+          return;
+        }
+      }
+
       const btn = document.getElementById('submit-btn');
       btn.disabled = true;
       btn.textContent = 'Posting...';
 
+      let photosUrls = [];
+      if (selectedPhotos.length > 0) {
+        const formData = new FormData();
+        selectedPhotos.forEach(file => formData.append('photos', file));
+
+        try {
+          const uploadRes = await fetch(`${API_URL}/upload`, {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${getToken()}`
+            },
+            body: formData
+          });
+
+          const uploadData = await uploadRes.json();
+          if (!uploadRes.ok) {
+            throw new Error(uploadData.error || 'Photo upload failed');
+          }
+          photosUrls = uploadData.urls;
+        } catch (error) {
+          showError('Failed to upload photos: ' + error.message); 
+          btn.disabled = false;
+          btn.textContent = 'Post Animal';
+          return;
+        }
+      }
+
       // For now, we'll skip photo upload to Cloudinary
       // In production, you'd upload to Cloudinary first
       const listingData = {
-        name: document.getElementById('name').value,
+        name: document.getElementById('name').value.trim(),
         type: document.getElementById('type').value,
-        breed: document.getElementById('breed').value,
-        age: document.getElementById('age').value,
+        breed: document.getElementById('breed').value.trim(),
+        age: document.getElementById('age').value.trim(),
         gender: document.getElementById('gender').value,
-        location: document.getElementById('location').value,
-        description: document.getElementById('description').value,
-        healthStatus: document.getElementById('healthStatus').value,
+        location: document.getElementById('location').value.trim(),
+        description: document.getElementById('description').value.trim(),
+        healthStatus: document.getElementById('healthStatus').value.trim(),
         vaccinated: document.getElementById('vaccinated').checked,
         photos: [] // TODO: Implement Cloudinary upload
       };
@@ -98,8 +191,8 @@ const API_URL = 'http://localhost:5000/api';
         showSuccess('Animal posted successfully! Redirecting...');
         
         setTimeout(() => {
-          window.location.href = 'frontend/index.html';
-        }, 2000);
+  window.location.href = '../index.html';
+}, 2000);
 
       } catch (error) {
         showError(error.message);
