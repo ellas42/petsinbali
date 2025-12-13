@@ -117,7 +117,7 @@ function applyFilters() {
 }
 
 function viewListing(id) {
-  alert("Listing detail page coming soon! Listing ID: " + id);
+  window.location.href = `page-listing.html?id=` + id;
 }
 
 window.addEventListener("DOMContentLoaded", () => {
