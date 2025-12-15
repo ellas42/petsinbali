@@ -1,5 +1,4 @@
 const API_URL = "http://localhost:5000/api";
-
 const userNameHeader = document.getElementById("user-name-header");
 const userLocation = document.getElementById("user-location");
 const userEmail = document.getElementById("user-email");
@@ -20,7 +19,6 @@ if (!token) {
 
 async function loadProfile() {
   try {
-    //FIX use /auth/me endpoint
     const res = await fetch(`${API_URL}/auth/me`, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -166,7 +164,7 @@ if (uploadBtn) {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,
-          // DO NOTTTTTTT set ContentType for FormData 🖕
+          // DO NOTTTTTTT set ContentType for FormData 
         },
         body: formData,
       });
