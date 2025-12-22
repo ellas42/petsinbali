@@ -1,6 +1,6 @@
-const crypto = require('crypto');
-const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+const crypto = require("crypto");
+const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -8,55 +8,57 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
     lowercase: true,
-    trim: true
+    trim: true,
   },
   password: {
     type: String,
     required: true,
-    minlength: 6
+    minlength: 6,
   },
   name: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
   },
   role: {
     type: String,
-    enum: ['Finder', 'Adopter'],
-    required: true
+    enum: ["Finder", "Adopter"],
+    required: true,
   },
   location: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
   },
   phone: {
     type: String,
-    trim: true
+    trim: true,
   },
   bio: {
     type: String,
-    maxlength: 500
+    maxlength: 500,
   },
   isAdmin: {
     type: Boolean,
-    default: false
+    default: false,
   },
   isBanned: {
     type: Boolean,
-    default: false
+    default: false,
   },
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
+  },
+  photo: { type: String, default: "uploads/default-profile.png" 
   },
   resetPasswordToken: String,
-  resetPasswordExpire: Date
+  resetPasswordExpire: Date,
 });
 
 // pw hashing
-userSchema.pre('save', async function(next) {
-  if (!this.isModified('password')) return next();
+userSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) return next();
 
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
@@ -64,20 +66,20 @@ userSchema.pre('save', async function(next) {
 });
 
 // compare passwords
-userSchema.methods.comparePassword = async function(candidatePassword) {
+userSchema.methods.comparePassword = async function (candidatePassword) {
   return await bcrypt.compare(candidatePassword, this.password);
 };
 
 // reset pw
-userSchema.methods.getResetPasswordToken = function(){
-  const resetToken = crypto.randomBytes(20).toString('hex');
+userSchema.methods.getResetPasswordToken = function () {
+  const resetToken = crypto.randomBytes(20).toString("hex");
   this.resetPasswordToken = crypto
-    .createHash('sha256')
+    .createHash("sha256")
     .update(resetToken)
-    .digest('hex');
+    .digest("hex");
 
   this.resetPasswordExpire = Date.now() + 10 * 60 * 1000;
   return resetToken;
 };
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model("User", userSchema);
