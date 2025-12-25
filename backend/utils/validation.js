@@ -8,13 +8,13 @@ const validateRegister = (data) => {
     email: Joi.string().email().required(),
     password: Joi.string()
       .min(6)
-      .pattern(new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])'))
+      .pattern(new RegExp('^(?=.*[a-z])(?=.*[0-9])'))
       .required()
       .messages({
-        'string.pattern.base': 'Password must contain uppercase, lowercase, and number'
+        'string.pattern.base': 'Password must contain at least one number'
       }),
     name: Joi.string().min(2).max(50).required(),
-    role: Joi.string().valid('Finder', 'Adopter').required(),
+    role: Joi.string().valid('Finder', 'Adopter').required(), //remove role completely later
     location: Joi.string().min(2).max(100).required(),
     phone: Joi.string().pattern(/^[0-9+\-\s()]+$/).optional()
   });

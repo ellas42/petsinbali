@@ -119,6 +119,7 @@ document
     }
 
     if (selectedPhotos.length === 0) {
+      //change language
       showError("Minimal upload 1 foto dong bro!");
       return;
     }
@@ -172,9 +173,11 @@ document
       const data = await response.json();
 
       if (!response.ok) {
+        //change
         throw new Error(data.error || "Gagal posting hewan");
       }
 
+      //change
       showSuccess("hewan berhasil di posting");
 
       selectedPhotos = [];
