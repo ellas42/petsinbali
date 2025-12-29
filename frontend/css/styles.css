@@ -221,6 +221,11 @@ nav {
     min-width: 220px;
   }
 }
+
+/* 
+MAIN
+*/
+
 .hero {
   position: relative;
   background: white;
@@ -300,10 +305,8 @@ nav {
 }
 
 .listing-card {
-  background: var(--color-bg);
-  border-radius: 8px;
+  background: white;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -370,11 +373,12 @@ nav {
   background-color: var(--color-primary-hover);
 }
 
-.loading {
-  text-align: center;
-  padding: 3rem;
-  color: #7f8c8d;
-}
+  .loading {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--color-subtext);
+    font-size: 1rem;
+  }
 
 .reason {
   padding: 4rem 0;
@@ -744,19 +748,25 @@ footer {
   text-align: center;
 }
 
+.report-message {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
 .report h2 {
   font-size: 2rem;
-  color:var(--color-text);
+  color: var(--color-text);
   margin-bottom: 1.5rem;
 }
 
 .report p {
   font-size: 1.2rem;
   color: var(--color-text-p);
-  max-width: 700px;
+  max-width: 100%;
   text-align: center;
   margin: 0 auto;
   margin-bottom: 2rem;
+  line-height: 1.7;
 }
 
 .report .report-button {
@@ -843,6 +853,10 @@ footer {
     display: block;
   }
 
+  .nav-links li#create-listing-link {
+    display: none;
+  }
+
   /* Account Dropdown */
   .account-dropdown {
     position: relative;
@@ -860,6 +874,9 @@ footer {
     cursor: pointer;
     padding: 0.5rem 0.75rem;
     border-radius: 6px;
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
   }
 
   .dropdown-menu {
@@ -913,11 +930,12 @@ footer {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 0.75rem 1rem;
+    padding: 0.875rem 1rem;
     color: #333;
     text-decoration: none;
     transition: background-color 0.3s;
     font-size: 0.95rem;
+    min-height: 44px;
   }
 
   .dropdown-item:hover {
@@ -979,10 +997,20 @@ footer {
   .filters select,
   .filters input {
     width: 100%;
-    padding: 0.65rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 0.75rem;
+    border: 1px solid rgba(255, 145, 77, 0.2);
+    border-radius: 6px;
     font-size: 0.95rem;
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    transition: border-color 0.2s;
+  }
+
+  .filters select:focus,
+  .filters input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(255, 145, 77, 0.1);
   }
 
   /* Listings */
@@ -997,11 +1025,12 @@ footer {
   }
 
   .listing-card {
-    background: var(--color-bg);
+    background: var(--color-surface);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(255, 145, 77, 0.1);
   }
 
   .listing-card img {
@@ -1028,8 +1057,12 @@ footer {
   }
 
   .btn {
-    padding: 0.65rem 1.25rem;
-    font-size: 0.9rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   /* Dividers */
@@ -1080,8 +1113,11 @@ footer {
 
   .about-btn {
     margin: 1.25rem auto;
-    padding: 0.6rem 1.25rem;
+    padding: 0.75rem 1.5rem;
     font-size: 1rem;
+    min-height: 44px;
+    display: block;
+    width: fit-content;
   }
 
   /* Impact Section */
@@ -1109,10 +1145,11 @@ footer {
   }
 
   .stat {
-    background-color: #fff;
+    background-color: var(--color-surface);
     border-radius: 12px;
     padding: 1.5rem;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 145, 77, 0.08);
   }
 
   .stat h3 {
@@ -1169,12 +1206,13 @@ footer {
   .cafe-card {
     min-width: 280px;
     max-width: 280px;
-    background: white;
+    background: var(--color-surface);
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
     flex-shrink: 0;
+    border: 1px solid rgba(255, 145, 77, 0.1);
   }
 
   .cafe-images {
@@ -1251,10 +1289,15 @@ footer {
     margin-bottom: 1.5rem;
   }
 
+  .help-content ul {
+    padding-left: 0;
+  }
+
   .help-content li {
     font-size: 1rem;
     padding: 0.75rem 0;
     margin: 0.25rem 0;
+    line-height: 1.6;
   }
 
   .donate-button {
@@ -1269,21 +1312,32 @@ footer {
     text-align: center;
   }
 
+  .report-message {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
   .report h2 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    color: var(--color-text);
   }
 
   .report p {
     font-size: 1rem;
     max-width: 100%;
     margin: 0 auto 1.5rem;
+    color: var(--color-text-p);
+    line-height: 1.6;
   }
 
   .report .report-button {
     margin-top: 1.5rem;
-    padding: 0.85rem 2rem;
+    padding: 0.9rem 2rem;
     font-size: 1rem;
+    display: inline-block;
+    min-height: 44px;
+    min-width: 200px;
   }
 
   /* Footer */
@@ -1309,7 +1363,9 @@ footer {
 
   .account-btn {
     font-size: 1.2rem;
-    padding: 0.4rem 0.5rem;
+    padding: 0.5rem 0.6rem;
+    min-width: 40px;
+    min-height: 40px;
   }
 
   .hero {
@@ -1332,8 +1388,9 @@ footer {
 
   .filters select,
   .filters input {
-    padding: 0.6rem;
+    padding: 0.7rem;
     font-size: 0.9rem;
+    min-height: 44px;
   }
 
   .listings-grid {
@@ -1342,10 +1399,32 @@ footer {
 
   .listing-card img {
     height: 150px;
+    width: 100%;
+    object-fit: cover;
   }
 
   .listing-info {
     padding: 1rem;
+  }
+
+  .listing-info h3 {
+    font-size: 1rem;
+    color: var(--color-text);
+  }
+
+  .listing-info .type {
+    font-size: 0.8rem;
+    color: var(--color-subtext);
+  }
+
+  .listing-info .description {
+    font-size: 0.85rem;
+    color: var(--color-text-p);
+  }
+
+  .status {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
   }
 
   .reason-title h2 {
@@ -1357,8 +1436,9 @@ footer {
   }
 
   .about-btn {
-    padding: 0.55rem 1.1rem;
-    font-size: 0.9rem;
+    padding: 0.7rem 1.25rem;
+    font-size: 0.95rem;
+    min-height: 44px;
   }
 
   .impact-section {
@@ -1396,6 +1476,7 @@ footer {
   .cafe-card {
     min-width: 260px;
     max-width: 260px;
+    background: var(--color-surface);
   }
 
   .cafe-images {
@@ -1412,18 +1493,45 @@ footer {
 
   .help-content li {
     font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .report {
+    padding: 2rem 12px;
+  }
+
+  .report-message {
+    padding: 0;
   }
 
   .report h2 {
     font-size: 1.25rem;
+    margin-bottom: 0.75rem;
   }
 
   .report p {
     font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
+  }
+
+  .report .report-button {
+    padding: 0.85rem 1.75rem;
+    font-size: 0.95rem;
+    width: auto;
+    max-width: 100%;
+    min-height: 44px;
+    min-width: 180px;
   }
 
   .divider-line {
     width: 95%;
     margin: 1.25rem auto;
+  }
+
+  footer .container p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    padding: 0 10px;
   }
 }
